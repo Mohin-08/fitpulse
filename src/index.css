@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* --- GLOBAL LAYOUT FIXES --- */
+html, body, #root {
+    height: 100%;
+     margin: 0;
+    padding: 0;
+    display: block; 
+    overflow-x: hidden;
+}
+
+/* --- BASE STYLES & FONT --- */
+:root {
+/* UNHUMAN FONT: Angular, techy look */
+    font-family: 'Share Tech Mono', monospace;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: dark;
+    color: #D4F4FF; /* Light Cyan */
+    background-color: #080A0E; /* Ultra Dark Black-Blue */
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    font-weight: 500;
+    color: #1aace7;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #38e27d;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+}

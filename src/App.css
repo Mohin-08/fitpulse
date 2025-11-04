@@ -1,0 +1,282 @@
+/* ------------------------------------------- */
+/* --- GLOBAL APPLICATION STYLES (FITPULSE) --- */
+/* ------------------------------------------- */
+
+/* Set a clean, modern, dark theme look */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0D1117; /* Deep Slate Blue/Black background */
+    color: #D4F4FF; /* Light Cyan default text color */
+    /* Prevents horizontal scroll from body margins */
+    overflow-x: hidden; 
+}
+
+/* --- KEYFRAMES --- */
+@keyframes flash-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- FITPULSE CONTAINER FIX (FINAL SCROLL FIX) --- */
+.fitpulse-container {
+    /* CRITICAL FIX 1: Ensure padding and border are calculated within the width */
+    box-sizing: border-box;
+    /* CRITICAL FIX 2: Use 100% instead of 100vw */
+    width: 100%; 
+    min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+    background: #0D1117; /* Deep Slate Blue/Black */
+    border-radius: 0;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 20px;
+    overflow-y: auto; 
+    /* AGGRESSIVE FIX: Ensure any horizontal overflow inside is clipped entirely */
+    overflow-x: clip; 
+}
+
+.fitpulse-title {
+    font-size: 2.8rem;
+    font-weight: 800; 
+    color: #D4F4FF; /* Light Cyan */
+    margin: 40px 0 20px 0; 
+    text-align: center; 
+    width: 100%;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px #1aace7; /* Neon text effect */
+}
+
+.fitpulse-nav {
+    /* Ensures navigation is responsive within 100% width */
+    width: calc(100% - 30px); 
+    max-width: 1200px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 15px 0;
+    margin-bottom: 30px; 
+    border-bottom: 2px solid #1a2a42; 
+    box-shadow: 0 2px 10px rgba(26, 172, 231, 0.1);
+}
+
+.fitpulse-nav-group {
+    display: flex;
+    gap: 20px; 
+}
+
+/* --- NAVIGATION BUTTONS --- */
+
+.fitpulse-nav button {
+    background: none;
+    color: #a0b2c5; 
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px; 
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease; 
+    text-shadow: 0 0 2px rgba(212, 244, 255, 0.2);
+}
+
+.fitpulse-nav button:hover {
+    color: #ffffff;
+    background: #161B22; 
+    box-shadow: 0 0 8px #1aace750;
+    transform: translateY(-2px);
+}
+
+/* Underline active tab for a modern look */
+.fitpulse-nav button.active {
+    color: #1aace7; 
+    font-weight: 700;
+}
+.fitpulse-nav button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; 
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: #38e27d; /* Use green for active indicator */
+    border-radius: 2px;
+    box-shadow: 0 0 10px #38e27d;
+    transition: width 0.3s ease;
+}
+
+.signout-btn {
+    background: #161B22 !important; 
+    color: #ff6f61 !important; /* Use softer red for warning */
+    padding: 8px 20px !important;
+    border: 1px solid #ff6f6150 !important;
+}
+.signout-btn:hover {
+    background: #ff6f6110 !important; 
+    color: #ff6f61 !important;
+    transform: translateY(-1px); 
+    box-shadow: 0 0 8px #ff6f61;
+}
+
+/* --- CARD STRUCTURE (Primary Content Box) --- */
+
+.fitpulse-card {
+    background: #161B22; 
+    border-radius: 16px;
+    /* CRITICAL FIX: Use min() for responsive padding (4vw is smaller than 50px on mobile) */
+    padding: 40px min(50px, 4vw); 
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4); 
+    /* CRITICAL FIX: Use 100% to ensure card doesn't exceed parent */
+    width: 100%; 
+    max-width: 1200px;
+    /* Ensure auto margins center it */
+    margin: 0 auto 50px auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0; 
+    /* Apply smooth card animation/shadow */
+    animation: flash-in 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    transition: all 0.3s ease-out;
+    /* NEW: Explicitly allow content within the card to be clipped if it tries to overflow */
+    overflow: hidden; 
+}
+
+.fitpulse-card:hover {
+    transform: scale(1.005) translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px #1aace766;
+}
+
+
+/* --- SECTION HEADERS --- */
+
+.fitpulse-title-section {
+    font-size: 2.2rem; 
+    font-weight: 700;
+    color: #D4F4FF; 
+    padding-bottom: 10px;
+    border-bottom: 2px solid #1a2a42;
+    width: 100%;
+}
+
+
+/* --- INPUTS & BUTTONS (General) --- */
+
+.fitpulse-input {
+    /* Set color for techy aesthetic */
+    padding: 16px 18px;
+    border-radius: 8px;
+    border: 1px solid #1a2a42;
+    background: #0D1117; 
+    color: #D4F4FF;
+    font-size: 1.05rem;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.fitpulse-input:focus {
+    /* Apply focus glow */
+    border-color: #38e27d;
+    box-shadow: 0 0 8px #38e27d80;
+}
+
+.save-btn, .cancel-btn {
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #0D1117; /* Dark text for contrast */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+}
+
+.save-btn {
+    background-color: #1aace7; 
+    /* Apply neon glow */
+    box-shadow: 0 0 10px #1aace7;
+}
+.save-btn:hover { 
+    background-color: #38e27d; /* Highlight on hover */
+    transform: translateY(-2px); 
+    box-shadow: 0 0 15px #38e27d;
+}
+.save-btn[disabled] { 
+    background-color: #1a2a42; 
+    color: #555;
+    cursor: not-allowed; 
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.cancel-btn {
+    background: #555;
+}
+.cancel-btn:hover {
+    background: #1b1616;
+    transform: translateY(-2px);
+}
+
+/* --- LOG ITEM STYLING --- */
+.workout-log-list .workout-log-item {
+    transition: all 0.3s ease;
+}
+.workout-log-list .workout-log-item:hover {
+    background: #1a2a42 !important; /* Highlight on hover */
+    transform: translateX(5px);
+}
+.suggested-workout-btn:hover {
+    background: #1aace7; /* Change background on hover */
+    color: #0D1117;
+}
+
+
+/* --- MEDIA QUERIES (Updated for aggressive mobile containment) --- */
+
+@media (max-width: 1000px) {
+    /* Ensures all container logic respects mobile size */
+    .fitpulse-container { padding-top: 10px; }
+    
+    /* FIX: Navigation horizontal constraint */
+    .fitpulse-nav { 
+        width: 100%; 
+        padding: 15px 15px; /* Added horizontal padding back */
+        box-sizing: border-box; /* CRITICAL: Padding must be calculated inside the 100% width */
+        justify-content: space-between; 
+    }
+    
+    .fitpulse-nav-group { gap: 8px; }
+    .fitpulse-nav button { padding: 8px 10px; font-size: 0.9rem; }
+    
+    .fitpulse-card { 
+        /* CRITICAL FIX: Make the card respect the padding of the body/viewport */
+        width: 95%; /* 95% of parent allows a margin buffer */
+        padding: 20px 15px; 
+        margin-left: 2.5%; 
+        margin-right: 2.5%; 
+        box-sizing: border-box; /* CRITICAL: Ensures border and padding are inside the width */
+    }
+    
+    .profile-view-grid, .profile-edit-grid {
+        grid-template-columns: 1fr; 
+    }
+    
+    /* Removed the aggressive CSS override for ProgressTab, letting Tailwind manage it */
+}
